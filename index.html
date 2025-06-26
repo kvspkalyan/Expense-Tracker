@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Expense Tracker</h1>
+            <p>Manage your income and expenses to stay on budget</p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card income">
+                <h3>Total Income</h3>
+                <div class="value" id="totalIncome">0.00</div>
+            </div>
+            <div class="stat-card expense">
+                <h3>Total Expenses</h3>
+                <div class="value" id="totalExpenses">0.00</div>
+            </div>
+            <div class="stat-card net">
+                <h3>Net Income</h3>
+                <div class="value" id="netIncome">0.00</div>
+            </div>
+            <div class="stat-card transactions">
+                <h3>Total Transactions</h3>
+                <div class="value" id="totalTransactions">0</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2 class="section-title">Add Transaction</h2>
+                
+                <div class="transaction-type-tabs">
+                    <button class="tab-button active" data-type="income">Income</button>
+                    <button class="tab-button" data-type="expense">Expense</button>
+                </div>
+
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" step="0.01" placeholder="0.00" required>
+                        <div class="error-message" id="amountError">Please enter a valid amount</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="Enter description" required>
+                        <div class="error-message" id="descriptionError">Please enter a description</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" required>
+                            <!-- Options will be populated by JavaScript -->
+                        </select>
+                        <div class="error-message" id="categoryError">Please select a category</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                        <div class="error-message" id="dateError">Please select a date</div>
+                    </div>
+                    <button type="submit" class="btn" id="submitBtn">Add Income</button>
+                </form>
+
+                <div class="category-breakdown">
+                    <h3>Category Breakdown</h3>
+                    <div id="categoryBreakdown"></div>
+                </div>
+            </div>
+
+            <div class="list-section">
+                <div class="filter-section">
+                    <h2 class="section-title">Transaction History</h2>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <select id="filterType" class="filter-select">
+                            <option value="all">All Types</option>
+                            <option value="income">Income Only</option>
+                            <option value="expense">Expenses Only</option>
+                        </select>
+                        <select id="filterCategory" class="filter-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="transactions-list" id="transactionsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>                                 
